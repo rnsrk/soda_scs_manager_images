@@ -1,4 +1,4 @@
-FROM drupal:10.3.1-php8.2-apache-bookworm
+FROM drupal:11.0.0-rc1-php8.2-apache-bookworm
 
 LABEL org.opencontainers.image.source="https://github.com/rnsrk/scs-manager-images"
 
