@@ -1,6 +1,6 @@
-ARG DRUPAL_VERSION
-
 FROM drupal:10.3.1-php8.2-apache-bookworm
+
+LABEL org.opencontainers.image.source="https://github.com/rnsrk/scs_manager_images"
 
 # Install apts
 

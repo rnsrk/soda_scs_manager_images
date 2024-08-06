@@ -1,6 +1,6 @@
 FROM drupal:10.3.1-php8.2-apache-bookworm
 
-LABEL org.opencontainers.image.source="https://github.com/rnsrk/scs-manager-images"
+LABEL org.opencontainers.image.source="https://github.com/rnsrk/soda_scs_manager_images"
 
 # Install apts
 
