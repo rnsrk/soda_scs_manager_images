@@ -74,7 +74,7 @@ else
     --adapter_machine_name="default_adapter" \
     --description="Default SALZ adapter" \
     --ts_machine_name=${TS_REPOSITORY} \
-    --ts_user=${TS_USER} \
+    --ts_user=${TS_USERNAME} \
     --ts_password=${TS_PASSWORD} \
     --writable=TRUE \
     --preferred=TRUE  \
