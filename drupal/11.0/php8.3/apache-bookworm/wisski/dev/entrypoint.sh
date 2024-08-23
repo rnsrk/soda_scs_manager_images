@@ -32,7 +32,7 @@ else
     --site-name="${SITE_NAME}" \
     --account-name="${DRUPAL_USER}" \
     --account-pass="${DRUPAL_PASSWORD}"
-  } 1> /dev/null
+  } 2> /dev/null
   echo -e "\033[0;32mDRUPAL SITE \"${SITE_NAME}\" INSTALLED.\033[0m\n"
 
   # Lets get dirty with composer
@@ -44,7 +44,7 @@ else
   {
     composer require drupal/devel
     drush en devel -y
-  } 1> /dev/null
+  } 2> /dev/null
   echo -e "\033[0;32mDEVELOPMENT MODULES INSTALLED.\033[0m\n"
 
   # Add Drupal Recipe Composer plugin
@@ -53,7 +53,7 @@ else
     composer config repositories.ewdev vcs https://gitlab.ewdev.ca/yonas.legesse/drupal-recipe-unpack.git
     composer config allow-plugins.ewcomposer/unpack true
     composer require ewcomposer/unpack:dev-master
-  } 1> /dev/null
+  } 2> /dev/null
   echo -e "\033[0;32mRECIPE COMPOSER PLUGIN INSTALLED.\033[0m\n"
 
   # Apply WissKI recipe
@@ -63,15 +63,15 @@ else
     drush recipe ../recipes/wisski_recipe_base_dev
     composer unpack rnsrk/wisski_recipe_base_dev 
     drush cr
-  } 1> /dev/null
+  } 2> /dev/null
   echo -e "\033[0;32mWISSKI DEV RECIPE APPLIED.\033[0m\n"
 
   # Install default adapter
   echo -e "\033[0;33mINSTALL DEFAULT TRIPLESTORE ADAPTER.\033[0m"
   drush wisski-salz:create-adapter \
     --type="sparql11_with_pb" \
-    --adapter_label="Default Adapter" \
-    --adapter_machine_name="default_adapter" \
+    --adapter_label="Default" \
+    --adapter_machine_name="default" \
     --description="Default SALZ adapter" \
     --ts_machine_name=${TS_REPOSITORY} \
     --ts_user=${TS_USERNAME} \
@@ -82,7 +82,7 @@ else
     --write_url=${TS_WRITE_URL} \
     --federatable=TRUE \
     --default_graph=${DEFAULT_GRAPH} \
-    --same_as="http://www.w3.org/2002/07/owl#sameAs" 1> /dev/null
+    --same_as="http://www.w3.org/2002/07/owl#sameAs" 2> /dev/null
   echo -e "\033[0;32mDEFAULT TRIPLESTORE ADAPTER INSTALLED.\033[0m\n"
 
   # Set permissions
@@ -90,7 +90,7 @@ else
   {
     chown -R www-data:www-data /opt/drupal
     chmod -R 775 /opt/drupal
-  } 1> /dev/null
+  } 2> /dev/null
   echo -e "\033[0;32mPERMISSIONS SET.\033[0m\n"
 fi
 echo -e "\033[0;32m+---------------------------+\033[0m"
