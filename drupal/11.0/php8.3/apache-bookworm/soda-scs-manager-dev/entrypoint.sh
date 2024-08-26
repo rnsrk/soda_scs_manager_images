@@ -34,7 +34,7 @@ else
   drush en devel -y
 
   # Install and enable scs module
-  git clone https://github.com/SODa-Collections-Objects-Data-Literacy/soda_scs_manager.git /var/www/html/modules/custom/soda_scs_manager
+  git clone https://github.com/soda-collections-objects-data-literacy/soda_scs_manager.git /var/www/html/modules/custom/soda_scs_manager
   drush en soda_scs_manager -y
 fi
 
