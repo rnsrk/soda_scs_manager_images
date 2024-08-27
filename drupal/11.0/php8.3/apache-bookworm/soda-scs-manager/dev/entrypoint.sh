@@ -15,6 +15,7 @@ if drush status | grep -q "Drupal bootstrap.*Successful"; then
 
   # Fetch the new git repository
   cd /var/www/html/modules/custom/soda_scs_manager
+  git config --global --add safe.directory /var/www/html/modules/custom/soda_scs_manager
   git pull origin main
 
   # Clear cache
