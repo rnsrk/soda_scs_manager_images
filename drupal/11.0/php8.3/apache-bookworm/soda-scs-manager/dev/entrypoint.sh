@@ -10,12 +10,14 @@ done
 if drush status | grep -q "Drupal bootstrap.*Successful"; then
   echo "Drupal site is already installed. Updating packages and fetching new git repository..."
 
+  # Trust the git
+  git config --global --add safe.directory /var/www/html/modules/custom/soda_scs_manager
+
   # Update packages
   composer update
 
   # Fetch the new git repository
   cd /var/www/html/modules/custom/soda_scs_manager
-  git config --global --add safe.directory /var/www/html/modules/custom/soda_scs_manager
   git pull origin main
 
   # Clear cache
