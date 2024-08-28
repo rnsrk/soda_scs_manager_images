@@ -28,7 +28,7 @@ else
   # Install the site
   drush si \
     --db-url="${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}" \
-    --site-name="${SITE_NAME}" \
+    --site-name="${DRUPAL_SITE_NAME}" \
     --account-name="${DRUPAL_USER}" \
     --account-pass="${DRUPAL_PASSWORD}"
 
